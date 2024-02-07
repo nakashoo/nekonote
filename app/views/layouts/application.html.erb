@@ -7,11 +7,85 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/681fabb260.js" crossorigin="anonymous"></script>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if customer_signed_in? %>
+
+              <li class="nav-item">
+                <%#= link_to "Note", _path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%#= link_to "Schedule", _path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%#= link_to "To do", _path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+
+              <li class="nav-item">
+                <%#= link_to "Contact", _path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+
+              <li class="nav-item">
+                <%#= link_to "Link", _path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+
+              <li class="nav-item">
+                <%#= link_to "Log out", _path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+
+              <% elsif admin_signed_in? %>
+              <!--<li class="nav-item">-->
+
+
+                <!--<div class="col-sm d-flex justify-content-end">-->
+                <!-- <div class="btn btn-info me-2 text-font">Note</div>-->
+                <!--</div>-->
+                  <%#= link_to "Note", , class: "btn btn-outline-info text-font" %>
+              <!--</li>-->
+
+              <!--<li class="nav-item">-->
+                <%#= link_to "Schedule", _path, class: 'nav-link text-dark' %>
+              <!--</li>-->
+              <!--<li class="nav-item">-->
+                <%#= link_to "To do", _path, method: :delete, class: 'nav-link text-dark' %>
+              <!--</li>-->
+
+              <!--<li class="nav-item">-->
+                <%#= link_to "Contact", _path, method: :delete, class: 'nav-link text-dark' %>
+              <!--</li>-->
+
+              <!--<li class="nav-item">-->
+                <%#= link_to "Link", _path, method: :delete, class: 'nav-link text-dark' %>
+              <!--</li>-->
+
+               <p>aaaa</p>
+
+
+              <% else %>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    </header>
+    <div class="bg-color" >
     <%= yield %>
+    </div>
+    <footer class="footer-text">N E K O N O T E</footer>
   </body>
 </html>

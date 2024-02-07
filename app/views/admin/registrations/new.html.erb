@@ -1,0 +1,59 @@
+ <!--運営用 signin画面-->
+ <div class="container ">
+    <div class="row align-items-center justify-content-center" style="height:300px;">
+
+    <div class="row mb-3">
+      <div class="col-sm d-flex justify-content-start">
+        <%= link_to "Admin log in", new_admin_session_path, class: "btn btn-outline-info text-font" %>
+      </div>
+      <div class="col-sm d-flex justify-content-end">
+         <div class="btn btn-info me-2 text-font">Admin sign in</div>
+      </div>
+    </div>
+
+   <%= form_for(resource, as: resource_name, url: admin_admins_my_page_path) do |f| %>
+
+    <div class="row mb-3">
+      <%= f.label :Name, class: "col-sm-5 col-form-label text-font" %>
+      <div class="col-sm-7">
+        <%= f.text_field :name, class: "form-control", placeholder: "xxxxxx" %>
+      </div>
+    </div>
+
+
+     <div class="row mb-3">
+      <%= f.label :Email, class: "col-sm-5 col-form-label text-font" %>
+      <div class="col-sm-7">
+        <%= f.text_field :email, class: "form-control", placeholder: "xxx@xxx" %>
+      </div>
+    </div>
+
+     <div class="row mb-3">
+      <%= f.label :Responsible, class: "col-sm-5 col-form-label text-font" %>
+      <div class="col-sm-7">
+        <%= f.text_field :responsible, class: "form-control", placeholder: "xxxxxx" %>
+      </div>
+    </div>
+
+     <div class="row mb-3">
+      <%= f.label :Password, class: "col-sm-5 col-form-label text-font" %>
+      <div class="col-sm-7">
+        <%= f.text_field :password, class: "form-control", placeholder: "xxxxxx" %>
+      </div>
+    </div>
+
+
+     <div class="row mb-3">
+      <%= f.label :Password_confirmation, class: "col-sm-5 col-form-label text-font" %>
+      <div class="col-sm-7">
+        <%= f.text_field :password_confirmation, class: "form-control", placeholder: "xxxxxx" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <%= f.submit "Enter", class: "btn btn-dark text-font" %>
+    </div>
+
+    <% end %>
+    </div>
+ </div>
