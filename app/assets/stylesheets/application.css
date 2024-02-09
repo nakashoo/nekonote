@@ -51,4 +51,27 @@ footer {
 
 .text-font {
   font-family: 'DM Serif Display', serif;
+
 }
+
+.custom-table {
+  background-color: #ffffff;
+}
+
+.custom-image {
+  width: 180px;  /* 画像の幅を調整する値に書き換えてください */
+  height: 50px;  /* 高さを自動調整するためにautoを使用します */
+}
+
+.header-button{
+  width: 100px;
+  font-family: 'DM Serif Display', serif;
+}
+
+  .navbar-nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar-nav .nav-item {
+    margin-right: 40px;
+  }

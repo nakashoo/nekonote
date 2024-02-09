@@ -14,74 +14,41 @@
 
   </head>
 
-  <body>
-    <header>
+   <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
+            <a class="navbar-brand p-3" href="<%= admin_admins_my_page_path %>"><%= image_tag('nekonote_main.png', class: 'custom-image') %></a>
+            <%#= link_to "猫の手", admin_admins_my_page_path, class:"font-weight-bold text-dark text-font" %>
 
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-              <% if customer_signed_in? %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-              <li class="nav-item">
-                <%#= link_to "Note", _path, class: 'nav-link text-dark' %>
-              </li>
-              <li class="nav-item">
-                <%#= link_to "Schedule", _path, class: 'nav-link text-dark' %>
-              </li>
-              <li class="nav-item">
-                <%#= link_to "To do", _path, method: :delete, class: 'nav-link text-dark' %>
-              </li>
-
-              <li class="nav-item">
-                <%#= link_to "Contact", _path, method: :delete, class: 'nav-link text-dark' %>
-              </li>
-
-              <li class="nav-item">
-                <%#= link_to "Link", _path, method: :delete, class: 'nav-link text-dark' %>
-              </li>
-
-              <li class="nav-item">
-                <%#= link_to "Log out", _path, method: :delete, class: 'nav-link text-dark' %>
-              </li>
-
-              <% elsif admin_signed_in? %>
-              <!--<li class="nav-item">-->
-
-
-                <!--<div class="col-sm d-flex justify-content-end">-->
-                <!-- <div class="btn btn-info me-2 text-font">Note</div>-->
-                <!--</div>-->
-                  <%#= link_to "Note", , class: "btn btn-outline-info text-font" %>
-              <!--</li>-->
-
-              <!--<li class="nav-item">-->
-                <%#= link_to "Schedule", _path, class: 'nav-link text-dark' %>
-              <!--</li>-->
-              <!--<li class="nav-item">-->
-                <%#= link_to "To do", _path, method: :delete, class: 'nav-link text-dark' %>
-              <!--</li>-->
-
-              <!--<li class="nav-item">-->
-                <%#= link_to "Contact", _path, method: :delete, class: 'nav-link text-dark' %>
-              <!--</li>-->
-
-              <!--<li class="nav-item">-->
-                <%#= link_to "Link", _path, method: :delete, class: 'nav-link text-dark' %>
-              <!--</li>-->
-
-               <p>aaaa</p>
-
-
-              <% else %>
-
-              <% end %>
-            </ul>
-          </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto d-flex justify-content-between">
+          <li class="nav-item">
+            <%= link_to "Note", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Schedule", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "To Do", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Contact", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Link", admin_notes_path, method: :delete, class: 'nav-link text-dark btn btn-info header-button' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark btn btn-info header-button' %>
+          </li>
+        </ul>
+        </div>
         </div>
       </nav>
-
-
     </header>
     <div class="bg-color" >
     <%= yield %>
