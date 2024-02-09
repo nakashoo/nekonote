@@ -1,2 +1,21 @@
-<h1>Admin::Admins#show</h1>
-<p>Find me in app/views/admin/admins/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+
+    <div class='col-md-3'>
+
+    <table class='table'>
+      <tr><%#= image_tag @admin.get_profile_image, size:'100x100' %></tr>
+      <tr>
+    	  <th>name</th>
+	      <th><%= @current_admin.name %></th>
+      </tr>
+      <tr>
+    	  <th>responsible</th>
+	      <th><%= @current_admin.responsible %></th>
+      </tr>
+    </table>
+
+    </div>
+
+  </div>
+</div>
