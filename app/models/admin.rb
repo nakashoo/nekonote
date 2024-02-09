@@ -7,4 +7,6 @@ class Admin < ApplicationRecord
    validates :name, presence: true
    validates :responsible, presence: true
 
+  has_one_attached :image
+
 end
