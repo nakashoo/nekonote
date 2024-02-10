@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # 運営用
   # URL /admin/sign_in ...
   devise_for :admins, skip: [:passwords] ,controllers: {
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
    post 'admins/my_page' => 'admins#show', as: 'admin_admins_my_page'
    get 'notes/new' => 'notes#new', as: 'new_admin_note'
    resources :notes
+   resources :links
   end
 
 
