@@ -11,7 +11,7 @@ class Admin::NotesController < ApplicationController
    @note = Note.new(note_params)
    @note.admin = current_admin
    if @note.save
-    redirect_to admin_note_path(@note), notice: "You have created book successfully."
+    redirect_to admin_note_path(@note)
    else
     index
     render 'index'
@@ -23,6 +23,17 @@ class Admin::NotesController < ApplicationController
   end
 
   def edit
+    @note = Note.find(params[:id])
+  end
+
+  def update
+    @note = Note.find(params[:id])
+    if @note.update(note_params)
+      redirect_to admin_note_path(@note)
+    else
+      render "edit"
+    end
+
   end
 
   private
