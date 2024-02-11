@@ -1,18 +1,17 @@
 class Admin::AdminsController < ApplicationController
 
   def show
-    @current_admin = current_admin
-    render :show
+
   end
 
   def edit
-    @current_admin = current_admin
+
   end
 
   def update
-     @customer = current_customer
-    if @customer.update(customer_params)
-      redirect_to admin_admins_my_page _path
+     @current_admin = current_admin
+    if @current_admin.update(current_admin_params)
+      redirect_to admin_admins_my_page_path
     else
       render "edit"
     end
@@ -20,7 +19,7 @@ class Admin::AdminsController < ApplicationController
 
     private
 
-  def customer_params
+  def current_admin_params
     params.require(:admin).permit(:name,:responsible,:image)
   end
 
