@@ -1,0 +1,21 @@
+<div class='col-md-2 btn btn text-font'>
+
+  <table class='table border-dark'>
+    <tr>
+      <th>
+      <%= image_tag current_customer.get_profile_image, size: "100x100" %>
+      </th>
+    </tr>
+    <tr>
+      <th>name<br><%= current_customer.name %></th>
+    </tr>
+  	<tr>
+      <th>responsible<br><%= current_customer.responsible %></th>
+    </tr>
+    <tr>
+      <th>
+        <%= link_to "編集", costomers_infomation_edit_path, class: "btn btn-dark" %>
+      </th>
+    	</tr>
+  </table>
+</div>

@@ -8,4 +8,10 @@ class Customer < ApplicationRecord
   validates :name, presence: true
   validates :member_ship_year, presence: true
 
+  def get_profile_image
+    (image.attached?) ? image : 'default-image.jpeg'
+  end
+
+  has_many :notes
+
 end
