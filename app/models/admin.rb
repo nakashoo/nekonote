@@ -9,6 +9,10 @@ class Admin < ApplicationRecord
 
   has_one_attached :image
 
+  def get_profile_image
+    (image.attached?) ? image : 'default-image.jpeg'
+  end
+
   has_many :notes
 
 end
