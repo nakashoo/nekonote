@@ -18,8 +18,16 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
+
+          <% if admin_signed_in? %>
+          <!-- ① adminがログインしている時の猫の手ロゴ -->
             <a class="navbar-brand p-3" href="<%= admin_admins_my_page_path %>"><%= image_tag('nekonote_main.png', class: 'custom-image') %></a>
-            <%#= link_to "猫の手", admin_admins_my_page_path, class:"font-weight-bold text-dark text-font" %>
+          <% elsif customer_signed_in? %>
+          <!-- ② customerがログインしている時の猫の手ロゴ-->
+            <a class="navbar-brand p-3" href="<%= customers_my_page_path %>"><%= image_tag('nekonote_main.png', class: 'custom-image') %></a>
+          <% else %>
+          <!-- ③ adminもcustomerもログアウトしている時の表示はなし -->
+          <% end %>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,35 +36,40 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
          <ul class="navbar-nav ml-auto d-flex justify-content-between">
 
-           <%# if admin_signed_up?||admin_loged_in? %>
-          <li class="nav-item">
-            <%= link_to "Note", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Schedule", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "To Do", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Contact", admin_notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Link", admin_links_path, class: 'nav-link text-dark btn btn-info header-button' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark btn btn-info header-button' %>
-          </li>
-
-          <%# end %>
-
+           <% if admin_signed_in? %>
+              <!-- ① adminがログインしている時のヘッダー -->
+              <%= render 'layouts/admin_header' %>
+          <% elsif customer_signed_in? %>
+              <!-- ② customerがログインしている時のヘッダー -->
+              <%= render 'layouts/customer_header' %>
+          <% else %>
+              <!-- ③ adminもcustomerもログアウトしている時の表示はなし -->
+          <% end %>
         </ul>
         </div>
         </div>
       </nav>
+
     </header>
     <div class="bg-color" >
-    <%= yield %>
+
+
+      <div class='container'>
+        <div class='row'>
+
+          <% if current_admin %>
+            <%= render "admin/admins/sidebar" %>
+
+
+          <% end %>
+
+          <div class='col-md-10'>
+          <%= yield %>
+          </div>
+        </div>
+      </div>
+
+
     </div>
     <footer class="footer-text">N E K O N O T E</footer>
   </body>
