@@ -9,7 +9,7 @@
 
     <div class='col-md-9'>
 
-   <%= form_with url: admin_notes_path, model: @note do |f| %>
+   <%= form_with url: admin_note_path, method: :patch, model: @note do |f| %>
       <div class="form-group">
         <%= f.label :タイトル %>
         <%= f.text_field :title, class: 'form-control book_title' %>
