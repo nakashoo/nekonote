@@ -11,10 +11,10 @@ class Admin::LinksController < ApplicationController
   def create
    @link = Link.new(link_params)
    if @link.save
-    redirect_to admin_link_path(@link)
+    redirect_to admin_links_path
    else
     index
-    render 'index'
+    render 'new'
    end
   end
 
@@ -29,7 +29,7 @@ class Admin::LinksController < ApplicationController
   def update
     @link = Link.find(params[:id])
     if @link.update(link_params)
-      redirect_to admin_link_path(@link)
+      redirect_to admin_links_path
     else
       render "edit"
     end
