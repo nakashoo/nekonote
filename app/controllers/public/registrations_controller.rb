@@ -1,4 +1,4 @@
- #サークル員用 signin コントローラー
+ #サークル員用 sign up コントローラー
 
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
@@ -10,7 +10,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email,:responsible])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email,:member_ship_year])
   end
 
 
