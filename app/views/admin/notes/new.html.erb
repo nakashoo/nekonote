@@ -1,28 +1,18 @@
-<div class='container'>
-  <div class='row'>
+<%= form_with url: admin_notes_path, model: @note do |f| %>
 
-    <div class='col-md-3'>
-  　 <!--ログインサインインした人のuser情報を部分テンプレ-->
-     <%#= render '/', obj: @ %>
-    </div>
-
-
-    <div class='col-md-9'>
-
-   <%= form_with url: admin_notes_path, model: @note do |f| %>
-      <div class="form-group">
-        <%= f.label :タイトル %>
-        <%= f.text_field :title, class: 'form-control book_title' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :本文 %>
-        <%= f.text_area :body, class: 'form-control book_body' %>
-      </div>
-      <div class="row justify-content-center">
-       <%= f.submit "投稿", class: "btn btn-dark" %>
-      </div>
-    <% end %>
-    </div>
-
+  <div class="form-group">
+    <%= f.label :タイトル %>
+    <%= f.text_field :title, class: 'form-control book_title' %>
   </div>
-</div>
+
+  <div class="form-group">
+    <%= f.label :本文 %>
+    <%= f.text_area :body, class: 'form-control book_body' %>
+  </div>
+
+  <div class="row justify-content-center">
+    <%= f.submit "投稿", class: "btn btn-dark" %>
+  </div>
+
+<% end %>
+

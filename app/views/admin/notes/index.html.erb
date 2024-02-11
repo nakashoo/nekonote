@@ -1,40 +1,27 @@
-<div class='container'>
-  <div class='row'>
+<div class='row mb-3'>
+  <%= link_to "新規Note作成", new_admin_note_path , class: "btn btn-light" %>
+</div>
 
-    <div class='col-md-3'>
-  　 <!--ログインサインインした人のuser情報を部分テンプレ-->
-     <%#= render 'admin/admins', obj: @current_admin %>
-    </div>
-
-    <div class='col-md-9'>
-      <div class='row mb-3'>
-        <%= link_to "新規Note作成", new_admin_note_path , class: "btn btn-light" %>
-       </div>
-
-      <div class='row'>
-      <table class="table table-bordered custom-table">
-        <thead>
-          <tr>
-            <th>タイトル</th>
-            <th>投稿者</th>
-            <th>更新日</th>
-            <th>投稿日</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @notes.each do |note| %>
-        <tr>
-          <td><%= link_to(note.title, admin_note_path(note)) %></td>
-          <td><%= note.admin.name %></td>
-          <td><%= note.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-          <td><%= note.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-        </tr>
-        <% end %>
-        </tbody>
-      </table>
-      <%= paginate @notes %>
-      </div>
-    </div>
-
-  </div>
+<div class='row'>
+  <table class="table table-bordered custom-table">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>投稿者</th>
+        <th>更新日</th>
+        <th>投稿日</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= link_to(note.title, admin_note_path(note)) %></td>
+        <td><%= note.admin.name %></td>
+        <td><%= note.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= note.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+    <%= paginate @notes %>
 </div>
