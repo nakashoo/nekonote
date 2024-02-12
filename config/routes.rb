@@ -31,6 +31,7 @@ Rails.application.routes.draw do
    get 'notes/new' => 'notes#new', as: 'new_admin_note'
    resources :notes
    resources :links
+   resources :contacts, only: [:index,:show]
   end
 
 
@@ -41,7 +42,9 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     resources :notes, only: [:index,:show]
     resources :links, only: [:index]
+    resources :contacts, only: [:index,:new,:create,:show] do
+      get 'thanks' => 'contacts#thanks'
+    end
   end
-
 
 end

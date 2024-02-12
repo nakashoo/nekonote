@@ -12,6 +12,6 @@ class Customer < ApplicationRecord
     (image.attached?) ? image : 'default-image.jpeg'
   end
 
-  has_many :notes
+  has_many :contacts
 
 end
