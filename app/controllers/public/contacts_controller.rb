@@ -1,4 +1,6 @@
 class Public::ContactsController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :set_contact, only: [:show]
 
   def index
     @contacts = current_customer.contacts.page(params[:page])
@@ -28,11 +30,12 @@ class Public::ContactsController < ApplicationController
 
   private
 
+  def set_contact
+    @contact = current_customer.contacts.find(params[:id])
+  end
+
   def contact_params
     params.require(:contact).permit(:title,:body,:customer_id)
   end
-
-
-
 
 end
