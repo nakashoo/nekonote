@@ -1,0 +1,16 @@
+<div class="row mb-3">
+  <table class="table table-bordered custom-table">
+    <tr>
+      <td><%= @note.title %></td>
+    </tr>
+    <tr>
+      <td><%= @note.created_at.strftime("%Y-%m-%d %H:%M:%S") %><br><%= @note.body %></td>
+    </tr>
+  </table>
+</div>
+
+<div class="row mb-3">
+  <div class="col-sm d-flex justify-content-center">
+    <%= link_to "一覧",notes_path, class: "btn btn-dark" %>
+  </div>
+</div>

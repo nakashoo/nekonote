@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   # 運営用
   # URL /admin/sign_in ...
   devise_for :admins, skip: [:passwords] ,controllers: {
@@ -32,6 +31,8 @@ Rails.application.routes.draw do
     get 'customers/my_page' => 'customers#show'
     get 'costomers/infomation/edit' => 'customers#edit'
     patch 'customers/information' => 'customers#update'
+    resources :notes, only: [:index,:show]
+    resources :links, only: [:index]
   end
 
 

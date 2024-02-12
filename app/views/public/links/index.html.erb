@@ -1,0 +1,18 @@
+<div class='row'>
+  <table class="table table-bordered custom-table">
+    <thead>
+      <tr>
+        <th>Link先</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @links.each do |link| %>
+      <tr>
+        <td><%= link.title %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+    <%= paginate @links %>
+
+</div>

@@ -57,9 +57,14 @@
       <div class='container'>
         <div class='row'>
 
-          <% if current_admin %>
+          <% if admin_signed_in? %>
+            <!-- ① adminがログインしている時のサイドバー -->
             <%= render "admin/admins/sidebar" %>
-
+          <% elsif customer_signed_in? %>
+            <!-- ② customerがログインしている時のサイドバー -->
+            <%= render "public/customers/sidebar" %>
+          <% else %>
+            <!-- ③ adminもcustomerもログアウトしている時の表示はなし -->
           <% end %>
 
           <div class='col-md-9'>
