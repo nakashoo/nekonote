@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'contacts/new'
+    get 'contacts/create'
+  end
+  namespace :admin do
+    get 'contacts/index'
+    get 'contacts/show'
+  end
   # 運営用
   # URL /admin/sign_in ...
   devise_for :admins, skip: [:passwords] ,controllers: {
