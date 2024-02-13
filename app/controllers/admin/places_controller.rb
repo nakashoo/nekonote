@@ -21,7 +21,7 @@ class Admin::PlacesController < ApplicationController
   def update
     @place = Place.find(params[:id])
     if @place.update(place_params)
-      redirect_to admin_places_path, notice: "変更しました"
+      redirect_to admin_places_path
     else
       render :edit
     end
@@ -32,8 +32,6 @@ class Admin::PlacesController < ApplicationController
     @place.destroy
     redirect_to admin_places_path
   end
-
-
 
   private
 

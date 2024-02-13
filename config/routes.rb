@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    get 'tasks/index'
+    get 'tasks/edit'
+  end
+  namespace :admin do
     get 'places/index'
     get 'places/edit'
   end
@@ -37,6 +41,7 @@ Rails.application.routes.draw do
    resources :links
    resources :contacts, only: [:index,:show]
    resources :places, only: [:index, :create, :edit, :update, :destroy]
+   resources :tasks, only: [:index, :create, :edit, :update, :destroy]
   end
 
 

@@ -1,0 +1,26 @@
+<div class="row">
+  <h4>task一覧・追加</h4>
+</div>
+
+<div class="row">
+    <%= form_with model: @task, url: admin_tasks_path do |f| %>
+      <%= f.label :name, "task名", class:'mr-5' %>
+      <%= f.text_field :name, placeholder: 'task' %>
+      <%= f.submit "追加", class: 'btn btn-dark btn-sm' %>
+    <% end %>
+</div>
+
+<div class="row my-2">
+  <div class="col-lg-6">
+    <table class="table">
+      <tbody>
+        <% @tasks.each do |task| %>
+         <tr>
+          <td><%= task.name %></td>
+          <td><%= link_to '編集', edit_admin_task_path(task), class: 'btn btn-dark btn-sm' %></td>
+         </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
