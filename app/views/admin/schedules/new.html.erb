@@ -1,2 +1,51 @@
-<h1>Admin::Schedules#new</h1>
-<p>Find me in app/views/admin/schedules/new.html.erb</p>
+<%= form_with url: admin_notes_path, model: @schedule do |f| %>
+
+
+<table class="table">
+  <tr>
+    <th style="border:none;"><%= f.label :行事名 %></th>
+    <td style="border:none;"><%= f.text_field :name, placeholder: "行事名", size: "20x20"%></td>
+  </tr>
+
+  <tr>
+    <th style="border:none;"><%= f.label :予定日時 %></th>
+    <td style="border:none;"><%= f.text_field  :scheduled_date, placeholder: "予定日時", size: "20x20"%></td>
+  </tr>
+
+  <tr>
+    <th style="border:none;"><%= f.label :確定日時 %></th>
+    <td style="border:none;"><%= f.text_field  :confirmed_date, placeholder: "予定日時", size: "20x20" %></td>
+  </tr>
+
+  <tr>
+    <th style="border:none;"><%= f.label :場所 %></th>
+    <td style="border:none;"><%= f.collection_select :place_id, Place.all, :id, :name, include_blank: "--選択してください--" %></td>
+  </tr>
+
+  <tr>
+    <th style="border:none;">
+     <div id='tasks'>
+       <%= f.fields_for :task_managers do |task| %>
+         <%= render 'task_manager_fields', :f => task %>
+       <% end %>
+    </th>
+    <td style="border:none;">
+       <div class='links'>
+         <%= link_to_add_association  f, :task_managers,class: "btn btn-dark btn-sm" do %>
+           <i class="fa-solid fa-plus"></i>
+         <% end %>
+       </div>
+     </div>
+    </td>
+ </tr>
+
+
+</table>
+
+  <div class="row justify-content-center">
+    <%= f.submit "投稿", class: "btn btn-dark" %>
+  </div>
+
+
+<% end %>
+

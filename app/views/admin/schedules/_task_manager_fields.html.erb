@@ -1,0 +1,11 @@
+ <div class='nested-fields'>
+   <div class="field">
+     <%= f.label :task_id %>
+     <%= f.collection_select :task_id, Task.all, :id, :name, include_blank: "--選択してください--" %>
+   </div>
+   <%#= link_to_remove_association "remove task", f,class: "btn btn-sm btn-dark btn-lg" %>
+   <%= link_to_remove_association f, class: "btn btn-sm btn-dark btn-lg" do %>
+    <i class="fa-solid fa-trash-can"></i>
+   <% end %>
+ </div>
+ 
