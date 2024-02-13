@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'places/index'
+    get 'places/edit'
+  end
   namespace :public do
     get 'contacts/new'
     get 'contacts/create'
@@ -32,6 +36,7 @@ Rails.application.routes.draw do
    resources :notes
    resources :links
    resources :contacts, only: [:index,:show]
+   resources :places, only: [:index, :create, :edit, :update, :destroy]
   end
 
 

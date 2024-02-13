@@ -1,0 +1,27 @@
+<div class="row">
+  <h4>place一覧・追加</h4>
+</div>
+
+<div class="row">
+    <%= form_with model: @place, url: admin_places_path do |f| %>
+      <%= f.label :name, "place名", class:'mr-5' %>
+      <%= f.text_field :name, placeholder: 'place' %>
+      <%= f.submit "追加", class: 'btn btn-dark btn-sm' %>
+    <% end %>
+
+</div>
+
+<div class="row my-2">
+  <div class="col-lg-6">
+    <table class="table">
+      <tbody>
+        <% @places.each do |place| %>
+         <tr>
+          <td><%= place.name %></td>
+          <td><%= link_to '編集', edit_admin_place_path(place), class: 'btn btn-dark btn-sm' %></td>
+         </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
