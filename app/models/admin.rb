@@ -14,5 +14,6 @@ class Admin < ApplicationRecord
   end
 
   has_many :notes
+  has_many :links
 
 end

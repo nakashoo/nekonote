@@ -1,21 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'tasks/index'
-    get 'tasks/edit'
-  end
-  namespace :admin do
-    get 'places/index'
-    get 'places/edit'
-  end
-  namespace :public do
-    get 'contacts/new'
-    get 'contacts/create'
-  end
-  namespace :admin do
-    get 'contacts/index'
-    get 'contacts/show'
-  end
   # 運営用
   # URL /admin/sign_in ...
   devise_for :admins, skip: [:passwords] ,controllers: {
@@ -42,6 +26,7 @@ Rails.application.routes.draw do
    resources :contacts, only: [:index,:show]
    resources :places, only: [:index, :create, :edit, :update, :destroy]
    resources :tasks, only: [:index, :create, :edit, :update, :destroy]
+   resources :schedules
   end
 
 
