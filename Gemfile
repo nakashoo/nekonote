@@ -62,3 +62,5 @@ gem 'devise'
 gem 'jquery-rails'
 
 gem 'cocoon'
+
+gem 'jquery-ui-rails'

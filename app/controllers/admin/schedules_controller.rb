@@ -1,6 +1,6 @@
 class Admin::SchedulesController < ApplicationController
   def index
-
+    @schedules = Schedule.all
   end
 
   def new
@@ -30,7 +30,7 @@ class Admin::SchedulesController < ApplicationController
   private
 
   def schedule_params
-    params.require(:schedule).permit(:name,:place_id,:scheduled_date,:confirmed_date)
+    params.require(:schedule).permit(:name,:place_id,:scheduled_date,:confirmed_date,:task_id,task_managers_attributes: [:id, :task_id, :_destroy])
   end
 
 

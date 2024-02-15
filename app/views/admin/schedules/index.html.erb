@@ -1,7 +1,33 @@
 <div class='row mb-3'>
-
   <%= link_to "新規schedule作成", new_admin_schedule_path , class: "btn btn-dark btn-sm mr-3" %>
   <%= link_to "placeページ", admin_places_path , class: "btn btn-dark btn-sm mr-3" %>
   <%= link_to "taskページ", admin_tasks_path , class: "btn btn-dark btn-sm" %>
+</div>
+
+
+<div class='row mb-3'>
+  <table class="table table-bordered custom-table">
+    <thead>
+      <tr>
+        <th>確定日程</th>
+        <th>行事名</th>
+        <th>場所</th>
+        <th>タスクステータス</th>
+        <th>達成率</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.admin.confirmed_date %></td>
+        <td><%= schedule.admin.name %></td>
+        <td><%= schedule.admin.place_id %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
 </div>

@@ -1,51 +1,52 @@
-<%= form_with url: admin_notes_path, model: @schedule do |f| %>
+ <%= form_with url: admin_schedules_path, model: @schedule do |f| %>
+
+ <div class="row">
 
 
-<table class="table">
-  <tr>
-    <th style="border:none;"><%= f.label :行事名 %></th>
-    <td style="border:none;"><%= f.text_field :name, placeholder: "行事名", size: "20x20"%></td>
-  </tr>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :行事名　 %>
+      <%= f.text_field :name, placeholder: '行事名', size: "20x20" %>
+    </div>
 
-  <tr>
-    <th style="border:none;"><%= f.label :予定日時 %></th>
-    <td style="border:none;"><%= f.text_field  :scheduled_date, placeholder: "予定日時", size: "20x20"%></td>
-  </tr>
+    <div class="form-group">
+    <%= f.label :予定日時 %>
+    <%#= f.text_field :scheduled_date, placeholder: '予定日時', size: '20x20' %>
+    <%= f.text_field :scheduled_date, placeholder: '予定日時', class: 'datepicker', id:"reservation_start_date" %>
+    </div>
 
-  <tr>
-    <th style="border:none;"><%= f.label :確定日時 %></th>
-    <td style="border:none;"><%= f.text_field  :confirmed_date, placeholder: "予定日時", size: "20x20" %></td>
-  </tr>
+    <div class="form-group">
+      <%= f.label :確定日時 %>
+      <%= f.text_field :confirmed_date, placeholder: '確定日時', class: 'datepicker', id:"reservation_end_date"  %>
+    </div>
 
-  <tr>
-    <th style="border:none;"><%= f.label :場所 %></th>
-    <td style="border:none;"><%= f.collection_select :place_id, Place.all, :id, :name, include_blank: "--選択してください--" %></td>
-  </tr>
+    <div class="form-group">
+      <%= f.label :場所　　 %>
+      <%= f.collection_select :place_id, Place.all, :id, :name, include_blank: "--選択してください--" %>
+    </div>
+  </div>
 
-  <tr>
-    <th style="border:none;">
+  <div class="col-md-6">
      <div id='tasks'>
        <%= f.fields_for :task_managers do |task| %>
          <%= render 'task_manager_fields', :f => task %>
        <% end %>
-    </th>
-    <td style="border:none;">
+
        <div class='links'>
          <%= link_to_add_association  f, :task_managers,class: "btn btn-dark btn-sm" do %>
            <i class="fa-solid fa-plus"></i>
          <% end %>
        </div>
      </div>
-    </td>
- </tr>
-
-
-</table>
-
-  <div class="row justify-content-center">
-    <%= f.submit "投稿", class: "btn btn-dark" %>
   </div>
 
+ </div>
 
-<% end %>
+ <div class="row justify-content-center">
+  <%= f.submit "投稿", class: "btn btn-dark" %>
+ </div>
+
+ <% end %>
+
+
 
