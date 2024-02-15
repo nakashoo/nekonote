@@ -1,3 +1,4 @@
+
 <div class="row mb-3">
   <table class="table table-bordered custom-table">
     <tr>
@@ -9,11 +10,11 @@
   </table>
 </div>
 
-<div class="row mb-3">
-  <div class="col-sm d-flex justify-content-end">
-    <%= link_to "一覧", admin_notes_path, class: "btn btn-dark" %>
-  </div>
-  <div class="col-sm d-flex justify-content-start">
-    <%= link_to "編集", edit_admin_note_path, class: "btn btn-dark" %>
-  </div>
+<div class='row mb-3'>
+  <%= link_to "一覧", admin_notes_path, class: "btn btn-dark btn-sm mr-3" %>
+  <%= link_to "編集", edit_admin_note_path, class: "btn btn-dark btn-sm mr-3" %>
+  <%= link_to admin_note_path(@note), method: :delete, class: "btn btn-sm btn-dark btn-lg" do %>
+    <i class="fa-solid fa-trash-can"></i>
+  <% end %>
 </div>
+
