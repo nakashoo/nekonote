@@ -14,6 +14,15 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
+  devise_scope :admin do
+    post "admin/guest_sign_in", to: "admin/sessions#guest_sign_in"
+  end
+
+  devise_scope :customer do
+    post "public/guest_sign_in", to: "public/sessions#guest_sign_in"
+  end
+
+
  # 運営用
   namespace :admin do
    get 'admins/my_page' => 'admins#show'

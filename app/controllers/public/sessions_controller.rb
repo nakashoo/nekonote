@@ -11,6 +11,13 @@ class Public::SessionsController < Devise::SessionsController
      new_customer_session_path
   end
 
+  # サークル員ゲスト用
+  def guest_sign_in
+    customer = Customer.guest
+    sign_in customer
+    redirect_to customers_my_page_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   protected
 
   def configure_sign_in_params

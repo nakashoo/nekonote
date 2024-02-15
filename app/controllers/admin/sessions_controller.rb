@@ -10,6 +10,13 @@ class Admin::SessionsController < Devise::SessionsController
      new_admin_session_path
   end
 
+  # 運営ゲスト用
+  def guest_sign_in
+    admin = Admin.guest
+    sign_in admin
+    redirect_to admin_admins_my_page_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   protected
 
   def configure_sign_in_params

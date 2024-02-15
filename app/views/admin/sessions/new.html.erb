@@ -1,10 +1,13 @@
 <!--運営用 login画面-->
 <div class="container">
     <div class="row mb-3 justify-content-center">
-        <div class="col-6 d-flex justify-content-end">
+        <div class="col-4 d-flex justify-content-end">
+          <%= link_to 'Guest log in', admin_guest_sign_in_path, method: :post, class: 'btn btn-dark me-2 text-font' %>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
           <div class="text-dark btn btn-info me-2 text-font">Admin log in</div>
         </div>
-        <div class="col-6 d-flex justify-content-start">
+        <div class="col-4 d-flex justify-content-start">
            <%= link_to "Admin sign in", new_admin_registration_path, class: "btn btn-outline-info text-font" %>
         </div>
     </div>
