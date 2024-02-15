@@ -12,7 +12,7 @@
     <tbody>
       <% @links.each do |link| %>
       <tr>
-        <td><%= link_to(link.title, edit_admin_link_path(link)) %></td>
+        <td><%= link_to(link.title,admin_link_path(link)) %></td>
       </tr>
       <% end %>
     </tbody>

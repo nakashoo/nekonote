@@ -33,7 +33,12 @@ class Admin::LinksController < ApplicationController
     else
       render "edit"
     end
+  end
 
+  def destroy
+    @link = Link.find(params[:id])
+    @link.destroy
+    redirect_to admin_links_path
   end
 
   private
