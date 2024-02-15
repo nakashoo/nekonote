@@ -1,7 +1,7 @@
 class Admin::LinksController < ApplicationController
 
   def index
-    @links = Link.page(params[:page])
+    @links = Link.order(created_at: :desc).page(params[:page])
   end
 
   def new

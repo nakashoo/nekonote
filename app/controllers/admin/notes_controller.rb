@@ -1,6 +1,6 @@
 class Admin::NotesController < ApplicationController
   def index
-    @notes = Note.page(params[:page])
+    @notes = Note.order(created_at: :desc).page(params[:page])
   end
 
   def new

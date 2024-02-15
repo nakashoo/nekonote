@@ -3,7 +3,7 @@ class Public::ContactsController < ApplicationController
   before_action :set_contact, only: [:show]
 
   def index
-    @contacts = current_customer.contacts.page(params[:page])
+    @contacts = current_customer.contacts.order(created_at: :desc).page(params[:page])
   end
 
   def new
