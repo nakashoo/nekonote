@@ -98,7 +98,15 @@ footer {
   color: #000000;
 }
 
+.scrollable-note-show-text{
+  max-height: 220px; /* 例：表示する最大の高さを指定 */
+  overflow-y: auto; /* テキストが要素のサイズを超える場合にスクロールバーを表示 */
+}
 
+.scrollable-note-text{
+  max-height: 220px; /* 例：表示する最大の高さを指定 */
+  overflow-y: auto; /* テキストが要素のサイズを超える場合にスクロールバーを表示 */
+}
 
 /*
 *= require jquery-ui

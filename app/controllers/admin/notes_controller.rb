@@ -10,6 +10,7 @@ class Admin::NotesController < ApplicationController
   def create
    @note = Note.new(note_params)
    @note.admin = current_admin
+   @post.body = simple_format(params[:note][:body])
    if @note.save
     redirect_to admin_note_path(@note)
    else
