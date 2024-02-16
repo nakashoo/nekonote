@@ -19,7 +19,7 @@
   padding: 0;
 }
 
-
+/* 背景色*/
 .bg-color {
   background-color: #ddd1f0;
   min-height: calc(100vh - 240px) !important;
@@ -32,7 +32,7 @@ header {
   background-color: #ddd1f0;
 }
 
-
+/* footer*/
 footer {
   width: 100%;
   height: 120px;
@@ -41,6 +41,7 @@ footer {
   padding-right: 50px;
 }
 
+/* ログイン後のfooter*/
 .signed_in_footer-text {
   color: #ddd1f0;
   font-size: 30px;
@@ -49,6 +50,7 @@ footer {
   font-family: 'DM Serif Display', serif;
 }
 
+/* sign_in、sign_upページのfooter*/
 .log_out_footer-text{
   color: #ddd1f0;
   font-size: 60px;
@@ -60,7 +62,6 @@ footer {
 
 .text-font {
   font-family: 'DM Serif Display', serif;
-
 }
 
 .custom-table {
@@ -71,6 +72,7 @@ footer {
   width: 180px;  /* 画像の幅を調整する値に書き換えてください */
   height: 50px;  /* 高さを自動調整するためにautoを使用します */
 }
+
 
 .header-button{
   width: 100px;
@@ -86,26 +88,40 @@ footer {
     margin-right: 40px;
   }
 
-/* マウスを当てる前の色 */
+/* ヘッダーボタンマウスを当てる前の色 */
 .nav-item .header-button {
   background-color: #419db0;
   color: #000000;
 }
 
-/* マウスを当てた後の色 */
+/*ヘッダーボタンマウスを当てた後の色 */
 .nav-item .header-button:hover {
   background-color: #c1d4d0;
   color: #000000;
 }
 
+/* admin/note/showページのtext*/
 .scrollable-note-show-text{
-  max-height: 220px; /* 例：表示する最大の高さを指定 */
-  overflow-y: auto; /* テキストが要素のサイズを超える場合にスクロールバーを表示 */
+  max-height: 220px;
+  overflow-y: auto;
 }
 
+/* customer/note/showページのtext*/
 .scrollable-note-text{
-  max-height: 220px; /* 例：表示する最大の高さを指定 */
-  overflow-y: auto; /* テキストが要素のサイズを超える場合にスクロールバーを表示 */
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* customer/contact/showページのtext*/
+.scrollable-contact-show-text{
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* admin/contact/showページのtext*/
+.scrollable-admin-contact-show-text{
+  max-height: 130px;
+  overflow-y: auto;
 }
 
 /*

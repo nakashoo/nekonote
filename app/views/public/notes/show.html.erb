@@ -7,7 +7,7 @@
       <td><%= @note.created_at.strftime("%Y-%m-%d %H:%M:%S") %><br>
 
       <div class="scrollable-note-show-text">
-        <%= @note.body %>
+        <%= simple_format(@note.body) %>
       </div>
       </td>
     </tr>

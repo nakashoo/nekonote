@@ -13,6 +13,7 @@ class Public::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.customer = current_customer
+    @contact.body = params[:contact][:body]
       if @contact.save
         redirect_to contact_thanks_path(@contact)
       else
@@ -27,6 +28,11 @@ class Public::ContactsController < ApplicationController
   def thanks
   end
 
+  def destroy
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    redirect_to contacts_path
+  end
 
   private
 
