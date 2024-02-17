@@ -8,6 +8,7 @@ class Admin::ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
+    @contact.update(admin_read: true)
   end
 
   private
