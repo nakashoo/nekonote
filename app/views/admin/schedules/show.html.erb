@@ -1,2 +1,50 @@
-<h1>Admin::Schedules#show</h1>
-<p>Find me in app/views/admin/schedules/show.html.erb</p>
+<div class="row mb-3">
+
+  <div class="col-md-6">
+    <table class="table table-bordered custom-table">
+    <tr>
+      <th>確定日時</th>
+      <td><%= @schedule.confirmed_date %></td>
+    </tr>
+    <tr>
+      <th>予定日時</th>
+      <td><%= @schedule.scheduled_date %></td>
+    </tr>
+    <tr>
+      <th>行事名</th>
+      <td><%= @schedule.name %></td>
+    </tr>
+    <tr>
+      <th>場所</th>
+      <td><%= @schedule.place.name %></td>
+    </tr>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-bordered custom-table">
+      <tr>
+        <th>タスク項目</th>
+        <th>タスク締切</th>
+      </tr>
+        <% @schedule.task_managers.each do |task_manager| %>
+      <tr>
+        <td>
+          <%= task_manager.task.name %>
+        </td>
+        <td>
+          <%= task_manager.deadline_date %>
+        </td>
+      </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
+
+
+<div class='row mb-3'>
+  <%= link_to "一覧", admin_schedules_path, class: "btn btn-dark btn-sm mr-3" %>
+  <%= link_to "編集", edit_admin_schedule_path, class: "btn btn-dark btn-sm mr-3" %>
+  <%= link_to admin_schedule_path(@schedule), method: :delete, class: "btn btn-sm btn-dark btn-lg" do %>
+    <i class="fa-solid fa-trash-can"></i>
+  <% end %>
+</div>

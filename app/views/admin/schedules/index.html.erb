@@ -4,30 +4,74 @@
   <%= link_to "taskページ", admin_tasks_path , class: "btn btn-dark btn-sm" %>
 </div>
 
-
 <div class='row mb-3'>
-  <table class="table table-bordered custom-table">
-    <thead>
-      <tr>
-        <th>確定日程</th>
-        <th>行事名</th>
-        <th>場所</th>
-        <th>タスクステータス</th>
-        <th>達成率</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @schedules.each do |schedule| %>
-      <tr>
-        <td><%= schedule.admin.confirmed_date %></td>
-        <td><%= schedule.admin.name %></td>
-        <td><%= schedule.admin.place_id %></td>
-        <td></td>
-        <td></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+   <div class="scrollable-schedule-index-text">
+    <table class="table table-bordered custom-table">
+      <thead>
+        <tr>
+          <th>確定日程</th>
+          <th>行事名</th>
+          <th>場所</th>
+          <th>タスクステータス</th>
+          <th>達成率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= schedule.confirmed_date %></td>
+          <td><%= link_to(schedule.name, admin_schedule_path(schedule)) %></td>
+          <td><%= schedule.place.name %></td>
+          <td>
+            <button type="button" class="btn btn-dark btn-sm mr-3" data-toggle="modal" data-target="#target_schedule_id_<%= schedule.id %>">
+            タスクを表示
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="target_schedule_id_<%= schedule.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">タスク</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <%= form_with model:schedule, url: admin_schedule_path(schedule), method: :patch do |f| %>
+                  <div class="modal-body">
+                      <%= f.fields_for :task_managers do |t| %>
+                        <div class="form-check">
+                          <%= t.check_box :completed, class: 'form-check-input' %>
+                          <%= t.label :completed, t.object.task.name, class: 'form-check-label' %>
+                        </div>
+                      <% end %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <!-- Modal end -->
+          </td>
+          <td>
+            <% if schedule.task_managers.count > 0 %>
+              <%= ((schedule.task_managers.where(completed: true).count.to_f / schedule.task_managers.count.to_f) * 100).to_f %>
+            <% end %>
+            <% schedule.task_managers.where(completed: false).each do |task_m| %>
+          </td>
+            <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-</div>
+
+
+<!-- Button trigger modal -->
+
+
