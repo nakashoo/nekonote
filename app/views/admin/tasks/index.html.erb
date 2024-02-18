@@ -12,16 +12,18 @@
 
 <div class="row my-2">
   <div class="col-lg-6">
-    <table class="table">
-      <tbody>
-        <% @tasks.each do |task| %>
-         <tr>
-          <td><%= task.name %></td>
-          <td><%= link_to '編集', edit_admin_task_path(task), class: 'btn btn-dark btn-sm' %></td>
-         </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="table-scrollable-task-text">
+      <table class="table">
+        <tbody>
+          <% @tasks.each do |task| %>
+           <tr>
+            <td><%= task.name %></td>
+            <td><%= link_to '編集', edit_admin_task_path(task), class: 'btn btn-dark btn-sm' %></td>
+           </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 

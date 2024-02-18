@@ -106,11 +106,31 @@ footer {
   overflow-y: auto;
 }
 
+
+/* admin/note/showページのtext*/
+.scrollable-schedule-index-text{
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* admin/place/indexページのtext*/
+.table-scrollable-place-text{
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* admin/place/indexページのtext*/
+.table-scrollable-task-text{
+  max-height: 200px;
+  overflow-y: auto;
+}
+
 /* customer/note/showページのtext*/
 .scrollable-note-text{
   max-height: 220px;
   overflow-y: auto;
 }
+
 
 /* customer/contact/showページのtext*/
 .scrollable-contact-show-text{
