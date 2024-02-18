@@ -107,9 +107,9 @@ footer {
 }
 
 
-/* admin/note/showページのtext*/
+/* admin/schedule/indexページのtext*/
 .scrollable-schedule-index-text{
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
 }
 
@@ -122,6 +122,18 @@ footer {
 /* admin/place/indexページのtext*/
 .table-scrollable-task-text{
   max-height: 200px;
+  overflow-y: auto;
+}
+
+/* admin/schedule/new/editページのtext*/
+.scrollable-schedule-task-text{
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* admin/schedule/showページのtext*/
+.scrollable-schedule-show-text{
+  max-height: 300px;
   overflow-y: auto;
 }
 

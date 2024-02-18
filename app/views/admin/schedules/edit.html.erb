@@ -2,7 +2,6 @@
 
  <div class="row">
 
-
   <div class="col-md-6">
     <div class="form-group">
       <%= f.label :行事名　 %>
@@ -11,7 +10,6 @@
 
     <div class="form-group">
     <%= f.label :予定日時 %>
-    <%#= f.text_field :scheduled_date, placeholder: '予定日時', size: '20x20' %>
     <%= f.date_field :scheduled_date %>
     </div>
 
@@ -26,7 +24,7 @@
     </div>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-6 scrollable-schedule-task-text">
      <div id='tasks'>
        <%= f.fields_for :task_managers do |task| %>
          <%= render 'task_manager_fields', :f => task %>

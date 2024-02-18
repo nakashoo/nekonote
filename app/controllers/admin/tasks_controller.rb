@@ -1,7 +1,7 @@
 class Admin::TasksController < ApplicationController
 
   def index
-    @tasks = Task.page(params[:page])
+    @tasks = Task.all
     @task = Task.new
   end
 

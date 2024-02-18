@@ -1,10 +1,6 @@
-<div class='row mb-3'>
-  <%= link_to "新規schedule作成", new_admin_schedule_path , class: "btn btn-dark btn-sm mr-3" %>
-  <%= link_to "placeページ", admin_places_path , class: "btn btn-dark btn-sm mr-3" %>
-  <%= link_to "taskページ", admin_tasks_path , class: "btn btn-dark btn-sm" %>
-</div>
-
-<div class='row mb-3'>
+<div class='row'>
+<div class='col-md-10'>
+<!--<div class='row mb-3'>-->
    <div class="scrollable-schedule-index-text">
     <table class="table table-bordered custom-table">
       <thead>
@@ -17,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @schedules.each do |schedule| %>
+        <% @schedules.sort_by(&:confirmed_date).each do |schedule| %>
         <tr>
           <td><%= schedule.confirmed_date %></td>
           <td><%= link_to(schedule.name, admin_schedule_path(schedule)) %></td>
@@ -43,6 +39,7 @@
                         <div class="form-check">
                           <%= t.check_box :completed, class: 'form-check-input' %>
                           <%= t.label :completed, t.object.task.name, class: 'form-check-label' %>
+                          <%= t.label :completed, t.object.deadline_date, class: 'form-check-label' %>
                         </div>
                       <% end %>
                   </div>
@@ -70,8 +67,10 @@
   </div>
 </div>
 
-
-
-<!-- Button trigger modal -->
-
-
+<div class='col-md-2 d-flex flex-column'>
+<!--<div class='row mb-3'>-->
+  <%= link_to "新規行事作成", new_admin_schedule_path , class: "btn btn-dark btn-sm mb-2" %>
+  <%= link_to "場所ページ", admin_places_path , class: "btn btn-dark btn-sm mb-2" %>
+  <%= link_to "タスクページ", admin_tasks_path , class: "btn btn-dark btn-sm mb-2" %>
+</div>
+</div>

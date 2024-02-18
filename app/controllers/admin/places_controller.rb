@@ -1,6 +1,6 @@
 class Admin::PlacesController < ApplicationController
   def index
-    @places = Place.page(params[:page])
+    @places = Place.all
     @place = Place.new
   end
 
