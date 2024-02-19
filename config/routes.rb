@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'to_do_lists/index'
-  end
   # 運営用
   # URL /admin/sign_in ...
   devise_for :admins, skip: [:passwords] ,controllers: {
@@ -53,6 +50,8 @@ Rails.application.routes.draw do
     resources :contacts, only: [:index,:new,:create,:show,:destroy] do
       get 'thanks' => 'contacts#thanks'
     end
+    resources :schedules, only: [:index,:show]
+    get 'to_do_lists' => 'to_do_lists#index'
   end
 
 end

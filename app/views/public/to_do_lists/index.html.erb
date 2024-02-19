@@ -1,0 +1,27 @@
+<div class='row'>
+   <div class="scrollable-schedule-index-text">
+    <table class="table table-bordered custom-table">
+      <thead>
+        <tr>
+          <th>確定日程</th>
+          <th>行事名</th>
+          <th>タスク</th>
+          <th>締切日</th>
+          <th>タスクステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @to_do_lists.each do |to_do_list| %>
+        <tr>
+          <td><%= to_do_list.schedule&.confirmed_date %></td>
+          <td><%= to_do_list.schedule&.name %></td>
+          <td><%= to_do_list.task.name %></td>
+          <td><%= to_do_list.deadline_date %></td>
+          <td class="<%= to_do_list.completed ? 'text-success font-weight-bold' : 'text-danger font-weight-bold' %>">
+             <%= to_do_list.completed ? '対応済' : '未対応' %>
+          </td>
+         <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
