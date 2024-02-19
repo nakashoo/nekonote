@@ -1,5 +1,5 @@
-<div class="row">
-  <h4>task更新・削除</h4>
+<div class='btn btn text-font'>
+  <h2>Schedule > タスク</h2>
 </div>
 
 <div class="row">
@@ -8,8 +8,8 @@
   <table class="table">
     <tbody>
       <tr>
-         <td><%= f.label :name, "place名", class:'mr-5' %>
-             <%= f.text_field :name, placeholder: 'place' %>
+         <td><%= f.label :name, "タスク", class:'mr-5' %>
+             <%= f.text_field :name, placeholder: 'task' %>
          </td>
          <td><%= link_to "戻る", admin_tasks_path, class: "btn btn-sm btn-dark btn-lg" %></td>
          <td><%= f.submit "更新", class: "btn btn-dark ml-5 btn-sm" %></td>

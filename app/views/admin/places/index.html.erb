@@ -1,10 +1,10 @@
-<div class="row">
-  <h4>place一覧・追加</h4>
+<div class='btn btn text-font'>
+  <h2>Schedule > 場所</h2>
 </div>
 
 <div class="row">
     <%= form_with model: @place, url: admin_places_path do |f| %>
-      <%= f.label :name, "place名", class:'mr-5' %>
+      <%= f.label :name, "場所", class:'mr-5' %>
       <%= f.text_field :name, placeholder: 'place' %>
       <%= f.submit "追加", class: 'btn btn-dark btn-sm' %>
     <% end %>
@@ -31,5 +31,5 @@
 </div>
 
 <div class="row-sm d-flex justify-content-start">
-  <%= link_to "schedule一覧",  admin_schedules_path, class: "btn btn-dark btn-sm" %>
+  <%= link_to "Schedule一覧",  admin_schedules_path, class: "btn btn-dark btn-sm" %>
 </div>
