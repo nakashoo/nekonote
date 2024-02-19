@@ -21,7 +21,7 @@ class Admin < ApplicationRecord
     (image.attached?) ? image : 'default-image.jpeg'
   end
 
-  has_many :notes
-  has_many :links
+  has_many :notes, dependent: :destroy
+  has_many :links, dependent: :destroy
 
 end

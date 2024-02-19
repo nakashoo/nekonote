@@ -21,6 +21,6 @@ class Customer < ApplicationRecord
     (image.attached?) ? image : 'default-image.jpeg'
   end
 
-  has_many :contacts
+  has_many :contacts, dependent: :destroy
 
 end
