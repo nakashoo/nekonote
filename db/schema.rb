@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_18_085925) do
+ActiveRecord::Schema.define(version: 2024_02_19_104709) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2024_02_18_085925) do
   create_table "task_managers", force: :cascade do |t|
     t.integer "schedule_id", null: false
     t.integer "task_id", null: false
-    t.boolean "completed", default: true, null: false
+    t.boolean "completed", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "deadline_date", null: false

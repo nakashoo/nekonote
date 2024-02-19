@@ -13,8 +13,8 @@
       <tbody>
         <% @to_do_lists.each do |to_do_list| %>
         <tr>
-          <td><%= to_do_list.schedule&.confirmed_date %></td>
-          <td><%= to_do_list.schedule&.name %></td>
+          <td><%= to_do_list.schedule.confirmed_date %></td>
+          <td><%= to_do_list.schedule.name %></td>
           <td><%= to_do_list.task.name %></td>
           <td><%= to_do_list.deadline_date %></td>
           <td class="<%= to_do_list.completed ? 'text-success font-weight-bold' : 'text-danger font-weight-bold' %>">

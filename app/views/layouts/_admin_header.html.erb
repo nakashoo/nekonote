@@ -10,6 +10,9 @@
     <%= link_to "To Do", admin_to_do_lists_path, class: 'nav-link text-dark btn btn-info header-button' %>
   </li>
 
+   <% if Contact.exists?(admin_read: false) %>
+     <i class="fa-solid fa-bell"></i>
+   <% end %>
   <li class="nav-item">
     <%= link_to "Contact", admin_contacts_path, class: 'nav-link text-dark btn btn-info header-button' %>
   </li>
