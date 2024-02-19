@@ -1,7 +1,7 @@
 class Admin::LinksController < ApplicationController
 
   def index
-    @links = Link.order(created_at: :desc).page(params[:page])
+    @links = Link.page(params[:page])
   end
 
   def new
@@ -11,10 +11,10 @@ class Admin::LinksController < ApplicationController
   def create
    @link = Link.new(link_params)
    if @link.save
-    redirect_to admin_links_path
+    redirect_to admin_link_path(@link)
    else
-    index
-    render 'new'
+    @links = Link.page(params[:page])
+    render 'index'
    end
   end
 
@@ -29,7 +29,7 @@ class Admin::LinksController < ApplicationController
   def update
     @link = Link.find(params[:id])
     if @link.update(link_params)
-      redirect_to admin_links_path
+      redirect_to admin_link_path(@link)
     else
       render "edit"
     end
@@ -44,7 +44,7 @@ class Admin::LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:title, :url, :admin_id)
+    params.require(:link).permit(:title, :url)
   end
 
 end
