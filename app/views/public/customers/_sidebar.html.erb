@@ -14,7 +14,9 @@
     </tr>
     <tr>
       <th>
-        <%= link_to "編集", costomers_infomation_edit_path, class: "btn btn-dark" %>
+        <% if current_customer.email != "guest@example.com" %>
+          <%= link_to "編集", costomers_infomation_edit_path, class: "btn btn-dark" %>
+        <% end %>
       </th>
     	</tr>
   </table>

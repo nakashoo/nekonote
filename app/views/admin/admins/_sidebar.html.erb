@@ -14,7 +14,9 @@
     </tr>
     <tr>
       <th>
-        <%= link_to "編集", admin_admins_infomation_edit_path, class: "btn btn-dark" %>
+        <% if current_admin.email != "admin@example.com" %>
+          <%= link_to "編集", admin_admins_infomation_edit_path, class: "btn btn-dark" %>
+        <% end %>
       </th>
     	</tr>
   </table>

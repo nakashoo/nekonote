@@ -1,4 +1,5 @@
 class Admin::AdminsController < ApplicationController
+  before_action :ensure_guest_user, only: [:edit]
 
   def show
 
@@ -23,5 +24,14 @@ class Admin::AdminsController < ApplicationController
     params.require(:admin).permit(:name,:responsible,:image)
   end
 
+  def ensure_guest_user
+    @current_admin  = current_admin
+    if current_admin.email == "admin@example.com"
+      redirect_to admin_admins_my_page_path
+    end
+  end
+
+
 
 end
+
