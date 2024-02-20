@@ -1,4 +1,5 @@
 class Admin::LinksController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @links = Link.page(params[:page])

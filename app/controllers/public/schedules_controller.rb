@@ -1,4 +1,6 @@
 class Public::SchedulesController < ApplicationController
+  before_action :authenticate_customer!
+
   def index
     @schedules = Schedule.all
   end

@@ -1,4 +1,6 @@
 class Admin::SchedulesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @schedules = Schedule.all
     @schedule = Schedule.new

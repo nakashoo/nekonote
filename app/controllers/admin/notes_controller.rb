@@ -1,4 +1,6 @@
 class Admin::NotesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @notes = Note.order(created_at: :desc).page(params[:page])
   end
