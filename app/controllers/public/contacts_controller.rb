@@ -17,7 +17,7 @@ class Public::ContactsController < ApplicationController
       if @contact.save
         redirect_to contact_thanks_path(@contact)
       else
-        render 'show'
+        render 'new'
       end
   end
 

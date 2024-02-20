@@ -16,8 +16,7 @@ class Admin::NotesController < ApplicationController
    if @note.save
     redirect_to admin_note_path(@note)
    else
-    index
-    render 'index'
+    render 'new'
    end
   end
 

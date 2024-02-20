@@ -14,8 +14,7 @@ class Admin::LinksController < ApplicationController
    if @link.save
     redirect_to admin_link_path(@link)
    else
-    @links = Link.page(params[:page])
-    render 'index'
+    render 'new'
    end
   end
 
