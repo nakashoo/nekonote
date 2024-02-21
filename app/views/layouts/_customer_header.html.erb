@@ -1,0 +1,23 @@
+  <li class="nav-item">
+    <%= link_to "Note",notes_path, class: 'nav-link text-dark btn btn-info header-button' %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Schedule",schedules_path, class: 'nav-link text-dark btn btn-info header-button' %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "To Do",to_do_lists_path, class: 'nav-link text-dark btn btn-info header-button' %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Contact",contacts_path, class: 'nav-link text-dark btn btn-info header-button' %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Link",links_path, class: 'nav-link text-dark btn btn-info header-button' %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark btn btn-info header-button' %>
+  </li>

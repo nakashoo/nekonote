@@ -1,0 +1,22 @@
+<div class='btn btn text-font'>
+  <h2>Link</h2>
+</div>
+
+<div class="row mb-3">
+  <table class="table table-bordered custom-table">
+    <tr>
+      <td><%= @link.title %></td>
+    </tr>
+    <tr>
+      <td><%= @link.url %></td>
+    </tr>
+  </table>
+</div>
+
+<div class='row mb-3'>
+  <%= link_to "一覧", admin_links_path, class: "btn btn-dark btn-sm mr-3" %>
+  <%= link_to "編集", edit_admin_link_path, class: "btn btn-dark btn-sm mr-3" %>
+  <%= link_to admin_link_path(@link), method: :delete, class: "btn btn-sm btn-dark btn-lg" do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<div class='btn btn text-font'>
+  <h2>Schedule > 場所</h2>
+</div>
+
+<div class="row">
+  <%= form_with model: @place, url: admin_place_path(@place.id), method: :patch, local: true do |f| %>
+
+  <table class="table">
+    <tbody>
+      <tr>
+         <td><%= f.label :name, "場所", class:'mr-5' %>
+             <%= f.text_field :name, placeholder: 'place' %>
+         </td>
+         <td><%= link_to "戻る", admin_places_path, class: "btn btn-sm btn-dark btn-lg" %></td>
+         <td><%= f.submit "更新", class: "btn btn-dark ml-5 btn-sm" %></td>
+         <td><%= link_to admin_place_path(@place), method: :delete, class: "btn btn-sm btn-dark btn-lg" do %>
+              <i class="fa-solid fa-trash"></i>
+             <% end %>
+         </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <% end %>
+</div>

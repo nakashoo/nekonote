@@ -8,6 +8,46 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
+
+import "jquery";
+import "popper.js";
+import "bootstrap";
+import 'bootstrap-datepicker';
+import "../stylesheets/application";
+
+
+
+var jQuery = require("jquery");
+global.$ = global.jQuery = jQuery;
+window.$ = window.jQuery = jQuery;
+
+require("@nathanvda/cocoon");
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+//= require jquery-ui
+//= require jquery-ui/widgets/datepicker
+
+
+// $(document).on('turbolinks:load', function() {
+//   $('.datepicker').datepicker({
+//     dateFormat: 'yy/mm/dd', // 例: 2024/02/14
+//     language: 'ja'
+//     // その他のオプションをここに追加できます
+//   });
+// });
+
+$(function() {
+  $('#reservation_start_date').datepicker({
+    format: 'yyyy/mm/dd'
+  });
+  $('#reservation_end_date').datepicker({
+    format: 'yyyy/mm/dd'
+  });
+});

@@ -1,0 +1,55 @@
+ <div class='btn btn text-font'>
+  <h2>Schedule</h2>
+</div>
+
+ <%= form_with url: admin_schedules_path, model: @schedule do |f| %>
+
+ <div class="row">
+
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :行事名　 %>
+      <%= f.text_field :name, placeholder: '行事名', size: "20x20" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :予定日時 %>
+    <%= f.date_field :scheduled_date %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :確定日時 %>
+      <%= f.date_field :confirmed_date  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :場所　　 %>
+      <%= f.collection_select :place_id, Place.all, :id, :name, include_blank: "--選択してください--" %>
+    </div>
+  </div>
+
+  <div class="col-md-6 scrollable-schedule-task-text">
+     <div id='tasks'>
+       <%= f.fields_for :task_managers do |task| %>
+         <%= render 'task_manager_fields', :f => task %>
+       <% end %>
+
+       <div class='links'>
+         <%= link_to_add_association  f, :task_managers,class: "btn btn-dark btn-sm" do %>
+           <i class="fa-solid fa-plus"></i>
+         <% end %>
+       </div>
+     </div>
+  </div>
+
+ </div>
+
+ <div class="row justify-content-center">
+  <%= f.submit "投稿", class: "btn btn-dark" %>
+ </div>
+
+ <% end %>
+
+
+

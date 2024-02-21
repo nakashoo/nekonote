@@ -1,0 +1,20 @@
+<div class='btn btn text-font'>
+  <h2>Link</h2>
+</div>
+
+<%= form_with url: admin_links_path, model: @link do |f| %>
+
+  <div class="form-group">
+    <%= f.label :Link先 %>
+    <%= f.text_field :title, class: 'form-control book_title' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :URL %>
+    <%= f.text_area :url, class: 'form-control book_body' %>
+  </div>
+
+  <div class="row justify-content-center">
+    <%= f.submit "投稿", class: "btn btn-dark" %>
+  </div>
+<% end %>

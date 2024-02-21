@@ -1,0 +1,23 @@
+<div class='btn btn text-font'>
+  <h2>Contact</h2>
+</div>
+
+<%= form_with url: contacts_path, model: @contact do |f| %>
+
+  <p>運営までご意見がありましたらこちらにお願いします。</p>
+
+  <div class="form-group">
+    <%= f.label :タイトル %>
+    <%= f.text_field :title, class: 'form-control book_title' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :本文 %>
+    <%= f.text_area :body, wrap: "hard", class: 'form-control book_body', rows: 6, cols: 50 %>
+  </div>
+
+  <div class="row justify-content-center">
+    <%= f.submit "投稿", class: "btn btn-dark" %>
+  </div>
+
+<% end %>

@@ -1,0 +1,55 @@
+<!--サークル員用 signin画面-->
+<div class="container ">
+    <div class="row mb-3 justify-content-center">
+        <div class="col-6 d-flex justify-content-end">
+          <%= link_to "Log in", new_customer_session_path, class: "btn btn-outline-info text-font" %>
+        </div>
+        <div class="col-6 d-flex justify-content-start">
+          <div class="text-dark btn btn-info me-2 text-font">Sign in</div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+    <%= form_for(resource, as: resource_name, url: customer_registration_path) do |f| %>
+
+       <div class="row mb-3">
+          <%= f.label :Name, class: "col-sm-5 col-form-label text-font" %>
+       <div class="col-sm-7">
+          <%= f.text_field :name, class: "form-control", placeholder: "xxxxxx" %>
+       </div>
+       </div>
+
+       <div class="row mb-3">
+          <%= f.label :Email, class: "col-sm-5 col-form-label text-font" %>
+       <div class="col-sm-7">
+          <%= f.email_field :email, class: "form-control", placeholder: "xxx@xxx" %>
+       </div>
+       </div>
+
+       <div class="row mb-3">
+          <%= f.label :Member_ship_year, class: "col-sm-5 col-form-label text-font" %>
+       <div class="col-sm-7">
+          <%= f.text_field :member_ship_year, class: "form-control", placeholder: "xxxxxx" %>
+       </div>
+       </div>
+
+       <div class="row mb-3">
+          <%= f.label :Password, class: "col-sm-5 col-form-label text-font" %>
+       <div class="col-sm-7">
+          <%= f.password_field :password, class: "form-control", placeholder: "xxxxxx" %>
+       </div>
+       </div>
+
+       <div class="row mb-3">
+          <%= f.label :Password_confirmation, class: "col-sm-5 col-form-label text-font" %>
+       <div class="col-sm-7">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "xxxxxx" %>
+       </div>
+       </div>
+
+       <div class="row justify-content-center">
+          <%= f.submit "Enter", class: "btn btn-dark text-font" %>
+       </div>
+    <% end %>
+    </div>
+</div>
+

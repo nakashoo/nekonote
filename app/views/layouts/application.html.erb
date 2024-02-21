@@ -6,11 +6,77 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/681fabb260.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+
+          <% if admin_signed_in? %>
+          <!-- ① adminがログインしている時の猫の手ロゴ -->
+            <a class="navbar-brand p-3" href="<%= admin_admins_my_page_path %>"><%= image_tag('nekonote_main.png', class: 'custom-image') %></a>
+          <% elsif customer_signed_in? %>
+          <!-- ② customerがログインしている時の猫の手ロゴ-->
+            <a class="navbar-brand p-3" href="<%= customers_my_page_path %>"><%= image_tag('nekonote_main.png', class: 'custom-image') %></a>
+          <% else %>
+          <!-- ③ adminもcustomerもログアウトしている時の表示はなし -->
+          <% end %>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto d-flex justify-content-between">
+
+           <% if admin_signed_in? %>
+              <!-- ① adminがログインしている時のヘッダー -->
+              <%= render 'layouts/admin_header' %>
+          <% elsif customer_signed_in? %>
+              <!-- ② customerがログインしている時のヘッダー -->
+              <%= render 'layouts/customer_header' %>
+          <% else %>
+              <!-- ③ adminもcustomerもログアウトしている時の表示はなし -->
+          <% end %>
+        </ul>
+        </div>
+        </div>
+      </nav>
+
+    </header>
+
+    <div class="bg-color" >
+      <div class='container'>
+        <div class='row'>
+
+          <% if admin_signed_in? %>
+            <!-- ① adminがログインしている時のサイドバー -->
+            <%= render "admin/admins/sidebar" %>
+          <% elsif customer_signed_in? %>
+            <!-- ② customerがログインしている時のサイドバー -->
+            <%= render "public/customers/sidebar" %>
+          <% else %>
+            <!-- ③ adminもcustomerもログアウトしている時の表示はなし -->
+          <% end %>
+
+          <div class='col-md-10'>
+          <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <% if admin_signed_in? || customer_signed_in? %>
+        <div class="signed_in_footer-text">N E K O N O T E</div>
+      <% else %>
+        <div class="log_out_footer-text">N E K O N O T E</div>
+      <% end %>
   </body>
 </html>

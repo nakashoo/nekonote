@@ -1,0 +1,23 @@
+<div class='col-md-2 btn btn text-font'>
+
+  <table class='table border-dark'>
+    <tr>
+      <th>
+      <%= image_tag current_admin.get_profile_image, size: "100x100" %>
+      </th>
+    </tr>
+    <tr>
+      <th>name<br><%= current_admin.name %></th>
+    </tr>
+  	<tr>
+      <th>responsible<br><%= current_admin.responsible %></th>
+    </tr>
+    <tr>
+      <th>
+        <% if current_admin.email != "admin@example.com" %>
+          <%= link_to "編集", admin_admins_infomation_edit_path, class: "btn btn-dark" %>
+        <% end %>
+      </th>
+    	</tr>
+  </table>
+</div>

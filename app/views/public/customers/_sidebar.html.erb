@@ -1,0 +1,23 @@
+<div class='col-md-2 btn btn text-font'>
+
+  <table class='table border-dark'>
+    <tr>
+      <th>
+      <%= image_tag current_customer.get_profile_image, size: "100x100" %>
+      </th>
+    </tr>
+    <tr>
+      <th>name<br><%= current_customer.name %></th>
+    </tr>
+  	<tr>
+      <th>member_ship_year<br><%= current_customer.member_ship_year %>年</th>
+    </tr>
+    <tr>
+      <th>
+        <% if current_customer.email != "guest@example.com" %>
+          <%= link_to "編集", costomers_infomation_edit_path, class: "btn btn-dark" %>
+        <% end %>
+      </th>
+    	</tr>
+  </table>
+</div>
