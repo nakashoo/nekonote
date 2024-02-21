@@ -21,10 +21,10 @@
 
           <% if admin_signed_in? %>
           <!-- ① adminがログインしている時の猫の手ロゴ -->
-            <a class="navbar-brand p-3" href="<%= admin_admins_my_page_path %>"><%= image_tag('nekonote_main.png', class: 'custom-image') %></a>
+            <a class="navbar-brand p-3" href="<%= admin_admins_my_page_path %>"><%= image_tag(aseet_path('nekonote_main.png'), class: 'custom-image') %></a>
           <% elsif customer_signed_in? %>
           <!-- ② customerがログインしている時の猫の手ロゴ-->
-            <a class="navbar-brand p-3" href="<%= customers_my_page_path %>"><%= image_tag('nekonote_main.png', class: 'custom-image') %></a>
+            <a class="navbar-brand p-3" href="<%= customers_my_page_path %>"><%= image_tag(aseet_pat('nekonote_main.png'), class: 'custom-image') %></a>
           <% else %>
           <!-- ③ adminもcustomerもログアウトしている時の表示はなし -->
           <% end %>

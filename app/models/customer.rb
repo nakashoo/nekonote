@@ -18,7 +18,7 @@ class Customer < ApplicationRecord
   validates :member_ship_year, presence: true
 
   def get_profile_image
-    (image.attached?) ? image : 'default-image.jpeg'
+    (image.attached?) ? image : aseet_path('default-image.jpeg')
   end
 
   has_many :contacts, dependent: :destroy
