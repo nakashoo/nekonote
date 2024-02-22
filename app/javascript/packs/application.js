@@ -16,15 +16,15 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import 'bootstrap-datepicker';
-import "../stylesheets/application";
-
-
 
 var jQuery = require("jquery");
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
 require("@nathanvda/cocoon");
+
+import "../stylesheets/application";
+import "../stylesheets/base"
 
 Rails.start()
 Turbolinks.start()
