@@ -14,10 +14,11 @@ class Admin::SchedulesController < ApplicationController
   def create
    @schedule = Schedule.new(schedule_params)
    if @schedule.save
+    flash[:notice] = "正常に保存されました"
     redirect_to admin_schedules_path
    else
-    new
-    render 'new'
+    flash.now[:alert] = '保存に失敗しました。'
+    render :new
    end
   end
 
@@ -33,12 +34,14 @@ class Admin::SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     @schedule.update(schedule_params)
+    flash[:notice] = "正常に更新されました"
     redirect_to admin_schedules_path
   end
 
   def destroy
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
+    flash[:notice] = "正常に削除されました"
     redirect_to admin_schedules_path
   end
 

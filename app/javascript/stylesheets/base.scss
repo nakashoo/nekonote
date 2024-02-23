@@ -141,3 +141,32 @@ footer {
   max-height: 130px;
   overflow-y: auto;
 }
+
+/*フラッシュメッセージ*/
+.flash-message {
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 16px 0px;
+}
+
+/*フラッシュメッセージ成功Ver*/
+.flash-message.notice {
+  background-color: #dcdcdc;
+  color: #000000;
+  border: solid 1px #000000;
+}
+
+/*フラッシュメッセージ失敗Ver*/
+.flash-message.alert {
+  background-color: #D084D1;
+  color: #000000;
+  border: solid 1px #642D65;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+}

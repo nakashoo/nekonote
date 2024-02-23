@@ -14,8 +14,10 @@ class Admin::NotesController < ApplicationController
    @note.admin = current_admin
    @note.body = params[:note][:body]
    if @note.save
+    flash[:notice] = "正常に保存されました"
     redirect_to admin_note_path(@note)
    else
+    flash.now[:alert] = '保存に失敗しました。'
     render 'new'
    end
   end
@@ -31,8 +33,10 @@ class Admin::NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     if @note.update(note_params)
+      flash[:notice] = "正常に更新されました"
       redirect_to admin_note_path(@note)
     else
+      flash.now[:alert] = '更新に失敗しました。'
       render "edit"
     end
   end
@@ -40,7 +44,8 @@ class Admin::NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
     @note.destroy
-    redirect_to admin_notes_path
+      flash[:notice] = "正常に削除されました"
+      redirect_to admin_notes_path
   end
 
 
