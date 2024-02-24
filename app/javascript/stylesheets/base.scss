@@ -88,8 +88,9 @@ footer {
 
 /* admin/member/indexページ*/
 .scrollable-member-text{
-  max-height: 300px;
+  max-height: 400px;
   width: 50vh;
+  overflow-y: auto;
 }
 
 
