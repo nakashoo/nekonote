@@ -37,11 +37,13 @@ Rails.application.routes.draw do
    resources :tasks, only: [:index, :create, :edit, :update, :destroy]
    resources :schedules
    get 'to_do_lists' => 'to_do_lists#index'
+   get 'members' => 'members#index'
   end
 
 
  # サークル用
   scope module: :public do
+    root to: "homes#top"
     get 'customers/my_page' => 'customers#show'
     get 'costomers/infomation/edit' => 'customers#edit'
     patch 'customers/information' => 'customers#update'

@@ -15,8 +15,10 @@ class Public::ContactsController < ApplicationController
     @contact.customer = current_customer
     @contact.body = params[:contact][:body]
       if @contact.save
+        flash[:notice] = "正常に保存されました"
         redirect_to contact_thanks_path(@contact)
       else
+        flash.now[:alert] = '保存に失敗しました'
         render 'new'
       end
   end
@@ -31,6 +33,7 @@ class Public::ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
+    flash[:notice] = "正常に削除されました"
     redirect_to contacts_path
   end
 
