@@ -1,0 +1,54 @@
+<div class='btn btn text-font'>
+  <h2>Member list</h2>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="scrollable-member-text">
+      <table class="table table-bordered custom-table">
+        <thead>
+          <tr>
+            <th>運営氏名</th>
+            <th>運営担当</th>
+          </tr>
+        </thead>
+        <% @admins.each do |admin| %>
+          <% unless admin.name == "guestuser" %>
+        <tbody>
+          <tr>
+            <td><%= admin.name %></td>
+            <td><%= admin.responsible %></td>
+          </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <p>運営人数： <%= @admins.size - 1 %>名</p>
+  </div>
+
+
+  <div class="col-6">
+    <div class="scrollable-member-text">
+      <table class="table table-bordered custom-table">
+        <thead>
+          <tr>
+            <th>サークル員氏名</th>
+            <th>入会年度</th>
+          </tr>
+        </thead>
+        <% @customers.each do |customer| %>
+          <% unless customer.name == "guestuser" %>
+        <tbody>
+          <tr>
+            <td><%= customer.name %></td>
+            <td><%= customer.member_ship_year %></td>
+          </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <p>サークル員人数： <%= @customers.size - 1 %>名</p>
+  </div>
+</div>

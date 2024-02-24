@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     end
     resources :schedules, only: [:index,:show]
     get 'to_do_lists' => 'to_do_lists#index'
+    get 'members' => 'members#index'
   end
 
 end
