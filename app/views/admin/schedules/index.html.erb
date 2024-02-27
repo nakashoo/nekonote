@@ -1,9 +1,9 @@
 <div class='btn btn text-font'>
-  <h2>Schedule</h2>
+  <h2>schedule</h2>
 </div>
 
 <div class='row'>
-<div class='col-md-10'>
+  <div class='col-md-10'>
 
    <div class="scrollable-schedule-index-text">
     <table class="table table-bordered custom-table">
@@ -17,7 +17,6 @@
         </tr>
       </thead>
       <tbody>
-
         <% @schedules.sort_by(&:confirmed_date).each do |schedule| %>
         <tr>
           <td><%= schedule.confirmed_date %></td>
@@ -70,13 +69,13 @@
         <% end %>
       </tbody>
     </table>
+  　</div>
   </div>
-</div>
 
-<div class='col-md-2 d-flex flex-column'>
+  <div class='col-md-2 d-flex flex-column'>
 
-  <%= link_to "新規行事作成", new_admin_schedule_path , class: "btn btn-dark btn-sm mb-2" %>
-  <%= link_to "場所ページ", admin_places_path , class: "btn btn-dark btn-sm mb-2" %>
-  <%= link_to "タスクページ", admin_tasks_path , class: "btn btn-dark btn-sm mb-2" %>
-</div>
+    <%= link_to "新規行事作成", new_admin_schedule_path , class: "btn btn-dark btn-sm mb-2" %>
+    <%= link_to "場所ページ", admin_places_path , class: "btn btn-dark btn-sm mb-2" %>
+    <%= link_to "タスクページ", admin_tasks_path , class: "btn btn-dark btn-sm mb-2" %>
+  </div>
 </div>
