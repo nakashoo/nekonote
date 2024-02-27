@@ -9,6 +9,5 @@ class Schedule < ApplicationRecord
   validates :place_id, presence: true
   validates :scheduled_date, presence: true
   validates :confirmed_date, presence: true
-
-
+  validates :task_managers, presence: true
 end
