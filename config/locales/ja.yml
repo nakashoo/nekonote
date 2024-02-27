@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    attributes:
+      admin:
+        name: "氏名"
+        responsible: "担当"
+      customer:
+        name: "氏名"
+        member_ship_year: "入会年度"
+      note:
+        title: "タイトル"
+        body: "本文"
+      schedule:
+        place_id: "場所"
+        name: "行事名"
+        task_managers: "タスク"
+        scheduled_date: "予定日程"
+        confirmed_date: "確定日程"
+      place:
+        name: "場所"
+      task:
+        name: "タスク"
+      contact:
+        title: "タイトル"
+        body: "本文"
+      link:
+        title: "Link先"
+        url: "Url"
+
+

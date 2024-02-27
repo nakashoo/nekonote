@@ -1,8 +1,9 @@
-<div class='btn btn text-font'>
-  <h2>Contact</h2>
-</div>
-
 <%= form_with url: contacts_path, model: @contact do |f| %>
+  <%= render 'layouts/error_messages', model: f.object%>
+
+  <div class='btn btn text-font'>
+    <h2>Contact</h2>
+  </div>
 
   <p>運営までご意見がありましたらこちらにお願いします。</p>
 

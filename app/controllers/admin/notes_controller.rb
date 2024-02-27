@@ -17,7 +17,6 @@ class Admin::NotesController < ApplicationController
     flash[:notice] = "正常に保存されました"
     redirect_to admin_note_path(@note)
    else
-    flash.now[:alert] = '保存に失敗しました。'
     render 'new'
    end
   end
@@ -36,7 +35,6 @@ class Admin::NotesController < ApplicationController
       flash[:notice] = "正常に更新されました"
       redirect_to admin_note_path(@note)
     else
-      flash.now[:alert] = '更新に失敗しました。'
       render "edit"
     end
   end

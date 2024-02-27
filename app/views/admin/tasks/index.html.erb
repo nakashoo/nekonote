@@ -1,13 +1,17 @@
-<div class='btn btn text-font'>
-  <h2>Schedule > タスク</h2>
-</div>
-
 <div class="row">
     <%= form_with model: @task, url: admin_tasks_path do |f| %>
+      <%= render 'layouts/error_messages', model: f.object%>
+
+  <div class='btn btn text-font'>
+    <h2>Schedule > タスク</h2>
+  </div>
+
+  <div class="row">
       <%= f.label :name, "タスク", class:'mr-5' %>
       <%= f.text_field :name, placeholder: 'task' %>
       <%= f.submit "追加", class: 'btn btn-dark btn-sm' %>
     <% end %>
+  </div>
 </div>
 
 <div class="row my-2">

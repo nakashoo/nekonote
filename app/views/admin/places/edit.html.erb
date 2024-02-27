@@ -1,9 +1,10 @@
-<div class='btn btn text-font'>
-  <h2>Schedule > 場所</h2>
-</div>
-
 <div class="row">
   <%= form_with model: @place, url: admin_place_path(@place.id), method: :patch, local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object%>
+
+  <div class='btn btn text-font'>
+    <h2>Schedule > 場所</h2>
+  </div>
 
   <table class="table">
     <tbody>

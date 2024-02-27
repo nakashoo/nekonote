@@ -17,7 +17,6 @@ class Admin::SchedulesController < ApplicationController
     flash[:notice] = "正常に保存されました"
     redirect_to admin_schedules_path
    else
-    flash.now[:alert] = '保存に失敗しました。'+ @schedule.errors.full_messages.join(', ')
     render :new
    end
   end
@@ -38,7 +37,6 @@ class Admin::SchedulesController < ApplicationController
       flash[:notice] = "正常に更新されました"
       redirect_to admin_schedules_path
     else
-      flash.now[:alert] = '保存に失敗しました。'+ @schedule.errors.full_messages.join(', ')
       render :edit
     end
   end

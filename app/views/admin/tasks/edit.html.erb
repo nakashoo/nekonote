@@ -1,9 +1,10 @@
-<div class='btn btn text-font'>
-  <h2>Schedule > タスク</h2>
-</div>
-
 <div class="row">
   <%= form_with model: @task, url: admin_task_path(@task.id), method: :patch, local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object%>
+
+  <div class='btn btn text-font'>
+    <h2>>Schedule > タスク</h2>
+  </div>
 
   <table class="table">
     <tbody>
