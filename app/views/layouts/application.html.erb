@@ -67,11 +67,10 @@
           <% end %>
 
           <div class='col-md-10'>
-
           <% flash.each do |message_type, message| %>
-            <div class="flash-message <%= message_type %>"><%= message %>
-              <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
-            </div>
+           <div class="flash-message <%= message_type %>"><%= message %>
+            <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+           </div>
           <% end %>
 
           <%= yield %>

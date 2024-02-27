@@ -18,7 +18,6 @@ class Public::ContactsController < ApplicationController
         flash[:notice] = "正常に保存されました"
         redirect_to contact_thanks_path(@contact)
       else
-        flash.now[:alert] = '保存に失敗しました'
         render 'new'
       end
   end

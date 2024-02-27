@@ -1,8 +1,9 @@
-<div class='btn btn text-font'>
-  <h2>Link</h2>
-</div>
-
 <%= form_with url: admin_links_path, model: @link do |f| %>
+  <%= render 'layouts/error_messages', model: f.object%>
+
+  <div class='btn btn text-font'>
+    <h2>Link</h2>
+  </div>
 
   <div class="form-group">
     <%= f.label :Link先 %>

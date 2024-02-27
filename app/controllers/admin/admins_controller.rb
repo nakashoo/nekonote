@@ -16,7 +16,6 @@ class Admin::AdminsController < ApplicationController
       flash[:notice] = "正常に更新されました"
       redirect_to admin_admins_my_page_path
     else
-      flash.now[:alert] = '更新に失敗しました。'
       render "edit"
     end
   end

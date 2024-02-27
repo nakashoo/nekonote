@@ -1,8 +1,9 @@
+ <%= form_with url: admin_schedule_path, method: :patch, model: @schedule do |f| %>
+  <%= render 'layouts/error_messages', model: f.object%>
+
  <div class='btn btn text-font'>
   <h2>Schedule</h2>
 </div>
-
- <%= form_with url: admin_schedule_path, method: :patch, model: @schedule do |f| %>
 
  <div class="row">
 

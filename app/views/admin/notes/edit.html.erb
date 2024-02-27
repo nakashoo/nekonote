@@ -1,8 +1,9 @@
-<div class='btn btn text-font'>
-  <h2>Note</h2>
-</div>
-
 <%= form_with url: admin_note_path, method: :patch, model: @note do |f| %>
+  <%= render 'layouts/error_messages', model: f.object%>
+
+  <div class='btn btn text-font'>
+    <h2>Note</h2>
+  </div>
 
   <div class="form-group">
     <%= f.label :タイトル %>
@@ -17,5 +18,4 @@
   <div class="row justify-content-center">
     <%= f.submit "更新", class: "btn btn-dark" %>
   </div>
-
 <% end %>

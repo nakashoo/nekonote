@@ -16,21 +16,21 @@
       <%= form_for(resource, as: resource_name, url: admin_session_path) do |f| %>
 
         <div class="row mb-3">
-          <%= f.label :Email, class: "col-sm-5 col-form-label text-font" %>
+          <%= f.label :email, class: "col-sm-5 col-form-label text-font" %>
         <div class="col-sm-7">
           <%= f.email_field :email, class: "form-control", placeholder: "xxx@xxx" %>
         </div>
         </div>
 
         <div class="row mb-3">
-          <%= f.label :Password, class: "col-sm-5 col-form-label text-font" %>
+          <%= f.label :password, class: "col-sm-5 col-form-label text-font" %>
         <div class="col-sm-7">
           <%= f.password_field :password, class: "form-control", placeholder: "xxxxxx" %>
         </div>
         </div>
 
         <div class="row mb-3">
-          <%= f.label :Password_confirmation, class: "col-sm-5 col-form-label text-font" %>
+          <%= f.label :password_confirmation, class: "col-sm-5 col-form-label text-font" %>
         <div class="col-sm-7">
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "xxxxxx" %>
         </div>

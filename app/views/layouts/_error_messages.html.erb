@@ -1,0 +1,10 @@
+<% if model.errors.any? %>
+  <div class="flash-message alert">
+    <ul>
+        <% model.errors.full_messages.each do |message| %>
+          <li class="errors-message"><%= message %></li>
+        <% end %>
+    </ul>
+    <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+  </div>
+<% end %>

@@ -12,7 +12,6 @@ class Admin::TasksController < ApplicationController
       flash[:notice] = "正常に保存されました"
       redirect_to edit_admin_task_path(@task)
     else
-      flash.now[:alert] = '保存に失敗しました。'
       @tasks = Task.all
       render :index
     end
@@ -28,7 +27,6 @@ class Admin::TasksController < ApplicationController
       flash[:notice] = "正常に更新されました"
       redirect_to admin_tasks_path
     else
-      flash.now[:alert] = '更新に失敗しました。'
       render :edit
     end
   end
